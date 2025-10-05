@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NASA APOD</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">NASA APOD Home</h1>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="saved.html" class="nav-link active">Saved</a>
+      </nav>
+    </div>
+  </header>
+
+    <main class="container">
+    <section class="card saved-page" aria-labelledby="liked-heading">
+      <h2 id="liked-heading">Liked Pictures</h2>
+      <p class="saved-intro">Favourites you’ve saved from NASA APOD.</p>
+      <div id="saved-container" class="saved-grid"></div>
+    </section>
+  </main>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("saved-container");
+    const saved = JSON.parse(localStorage.getItem("savedApods") || "[]");
+
+    if (saved.length === 0) {
+      container.innerHTML = "<p>No saved pictures yet. Go back to Home and save some!</p>";
+      return;
+    }
+
+    saved.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "saved-item large";
+      card.innerHTML = `
+        <img src="${item.url}" alt="${item.title}" />
+        <div class="saved-meta">
+          <div class="saved-title">${item.title}</div>
+          <div class="saved-sub">${item.date}</div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  });
+  </script>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>NASA APOD | ©2025 APOD</small>
+    </div>
+  </footer>
+
+
+</body>
+</html>

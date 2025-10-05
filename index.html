@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NASA APOD</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">NASA APOD Home</h1>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="saved.html" class="nav-link">Saved</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <section class="card primary-card" aria-labelledby="photo-title">
+      <form class="date-row" aria-label="Choose date form">
+        <label for="apod-date" class="sr-only">Choose Date</label>
+        <input id="apod-date" type="date">
+        <button id="load-btn" type="button" class="btn">Choose Date</button>
+      </form>
+
+      <h2 id="photo-title" class="photo-title">Picture title</h2>
+
+      <figure class="photo-wrap">
+        <img id="apod-image" src="https://via.placeholder.com/900x540?text=APOD+Image+Placeholder"
+             alt="Astronomy image placeholder">
+        <figcaption class="photo-caption">Image caption / credit</figcaption>
+      </figure>
+      
+
+<button id="save-btn" type="button" class="btn save-btn">Save to Favourites</button>
+      <div class="about">
+        <h3>About the project</h3>
+        <p>
+          This website is a personal project built to showcase NASA's Astronomy Picture of the Day (APOD) using the official NASA API. Each day, NASA publishes a breathtaking image or video from space, accompanied by a short explanation written by a professional astronomer. This site provides a clean, user-friendly interface to explore these daily space highlights, whether you're a space enthusiast, a student, or just curious about the universe.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>NASA APOD| ©2025 APOD</small>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
