@@ -2,7 +2,7 @@
   --bg: #0f1724;
   --card: #0b1220;
   --muted: #94a3b8;
-  --accent: #eab308;
+  --accent: #DEB6EF;
   --glass: rgba(255,255,255,0.03);
   --radius: 12px;
   --max-width: 1000px;
@@ -21,8 +21,6 @@ body {
   background: #05080a;
   color: var(--text);
   line-height: 1.45;
-
-  /* ✅ Make layout full height so footer sits at bottom */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
