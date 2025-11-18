@@ -1,7 +1,4 @@
-// script.js
-// Fetch NASA APOD image for the chosen date and allow saving to localStorage.
-
-const NASA_API_KEY = "MZZIJgDxx6L928f2muQCa0GbEBNqyxVLxa7J4nbH";
+const NASA_API_KEY = "g9TmtpcPre7C9i5zJSrb64x9ZBXHMFyadcilimnZ";
 const API_URL = "https://api.nasa.gov/planetary/apod";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!response.ok) throw new Error("Failed to fetch APOD.");
       const data = await response.json();
 
-      currentApod = data; // store current photo details
+      currentApod = data;
       title.textContent = data.title || "Astronomy Picture of the Day";
       img.src = data.url;
       img.alt = data.title || "NASA APOD image";
@@ -33,10 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Load today's image
-  const today = new Date().toISOString().split("T")[0];
-  dateInput.value = today;
-  fetchApod(today);
+  const today = new Date();
+  today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  const localDate = today.toISOString().split("T")[0];
+  dateInput.value = localDate;
+  fetchApod(localDate);
 
   loadBtn.addEventListener("click", () => {
     const selectedDate = dateInput.value;
@@ -44,13 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchApod(selectedDate);
   });
 
-  // Save current APOD
   saveBtn.addEventListener("click", () => {
     if (!currentApod) return alert("No image loaded yet.");
 
     const saved = JSON.parse(localStorage.getItem("savedApods") || "[]");
 
-    // prevent duplicates
     if (saved.some(item => item.date === currentApod.date)) {
       alert("This image is already saved.");
       return;

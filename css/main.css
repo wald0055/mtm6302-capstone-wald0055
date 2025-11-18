@@ -26,7 +26,6 @@ body {
   min-height: 100vh;
 }
 
-/* Common containers */
 .container {
   max-width: var(--max-width);
   margin-left: auto;
@@ -34,7 +33,6 @@ body {
   padding: 20px;
 }
 
-/* Header/Nav */
 .site-header {
   background: url(../images/header.jpg) center/cover no-repeat;
   border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -75,7 +73,6 @@ main {
   margin-right: auto;
 }
 
-/* Cards */
 .card {
   background: linear-gradient(180deg, rgba(146, 23, 23, 0.017), rgba(255,255,255,0.01));
   border: 1px solid rgba(255,255,255,0.03);
@@ -84,15 +81,14 @@ main {
   box-shadow: 0 6px 18px rgba(2,6,23,0.6);
 }
 
-/* Form & buttons */
 .date-row { display:flex; gap:8px; margin-bottom:12px; }
 .date-row input[type="date"] {
   flex: 1;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.04);
-  background: white
-  color: white;
+  background: white;
+  color: black;
 }
 .btn {
   background: var(--accent);
@@ -109,7 +105,6 @@ main {
 }
 .btn:active { transform: translateY(1px); }
 
-/* Image & about */
 .photo-title { margin: 0 0 10px; font-size: 1.25rem; text-align: center; }
 .photo-wrap img { width: 100%; border-radius: 10px; display: block; }
 .photo-caption { margin-top: 8px; color: var(--muted); font-size: 0.9rem; text-align: center; }
@@ -158,7 +153,6 @@ main {
 }
 
 
-/* Responsive breakpoint */
 @media (min-width: 860px) {
   .main-grid {
     grid-template-columns: 2fr 360px;
